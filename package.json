@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/whitepear/quote-generator#readme",
   "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",
     "babel-preset-react": "^6.16.0",
