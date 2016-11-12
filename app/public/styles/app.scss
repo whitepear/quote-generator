@@ -1,6 +1,6 @@
 @font-face {
-	font-family: 'KingBasil';
-	src: url('../fonts/King-Basil-Lite.otf');
+	font-family: 'Cavorting';
+	src: url('../fonts/Cavorting.otf');
 }
 
 html {
@@ -8,8 +8,72 @@ html {
 }
 
 body {
-	min-height: 100%;
-	font-family: 'KingBasil';	
+	min-height: 100%;	
+	font-family: 'Raleway', sans-serif;
 	color: #eee;
 	background: url(../images/sky_pink.jpg);
+}
+
+
+.title-container h1 {
+	margin-top: 0px;
+	font-size: 164px;	
+	font-family: 'Cavorting';	
+}
+
+.title-container h2 {	
+	font-family: 'Cavorting';	
+  position: relative;
+  top: -73px;
+  left: 65px;
+  font-size: 118px;
+}
+
+.quote-container {
+	text-align: right;
+	border-bottom: 1px solid transparent;
+  border-image: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2));
+  border-image-slice: 1;
+}
+
+.quote-container p {
+	font-size: 50px;
+	min-height: 200px;	
+}
+
+.quote-buttons {
+	margin-top: 75px;
+	text-align: center;
+}
+
+.btn-quote {
+	font-weight: bold;
+	width: 175px;
+	background:  transparent;
+	border: 2px solid #eee;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 28px;
+	transition: box-shadow 0.25s ease-out;
+
+	&:hover {
+		box-shadow: 0px 0px 10px -1px rgba(238, 238, 238, 0.7);
+		color: #fff;
+	}
+}
+
+.btn-tweet {
+	color: #eee;
+}
+
+a {
+	font-size: 70px;
+	color: #eee;
+	margin-left: 20px;
+	position: relative;
+	top: 20px;
+
+	&:hover {
+		color: #ddd;
+	}
 }
