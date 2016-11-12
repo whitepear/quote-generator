@@ -1,7 +1,7 @@
-// @font-face {
-// 	font-family: KingBasil;
-// 	src: url("../fonts/King-Basil-Lite.otf") format("opentype");
-// }
+@font-face {
+	font-family: 'KingBasil';
+	src: url('../fonts/King-Basil-Lite.otf');
+}
 
 html {
 	height: 100%;
@@ -9,6 +9,7 @@ html {
 
 body {
 	min-height: 100%;
-	// font-family: KingBasil;
+	font-family: 'KingBasil';	
+	color: #eee;
 	background: url(../images/sky_pink.jpg);
 }

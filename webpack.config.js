@@ -17,7 +17,7 @@ module.exports = {
 		loaders: [
 			{test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
 			{test: /\.scss$/, exclude: /node_modules/, loader: 'style-loader!css-loader!sass-loader'},
-			{test: /\.(png|jpg)$/, exclude: /node_modules/, loader: 'url-loader?limit=10000'}
+			{test: /\.(png|jpg|otf)$/, exclude: /node_modules/, loader: 'url-loader?limit=10000'}
 		]
 	},
 	plugins: [HtmlWebpackPluginConfig]	
