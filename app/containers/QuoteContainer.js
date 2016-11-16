@@ -17,17 +17,37 @@ var QuoteContainer = React.createClass({
 		}
 	},
 	componentDidMount: function() {
-		this.fetchQuote();
+		this.handleQuoteFetch();
 	},
-	fetchQuote: function() {
+	handleQuoteFetch: function() {
 		quoteFetcher()
-		.then(function(quoteData) {
+		.then(function(quoteData) {					
+
+			// sometimes the API returns a stringified JSON object, instead of actual JSON	
+			if (typeof quoteData.data === 'string') {
+				if (quoteData.data.match(/"/g).length > 20) {
+					// the quote field value contains nested, unescaped double-quotes
+					// hit the API again, as this is a rare and unusual API response
+					console.log('More than 20 double-quotes in string. Requesting new quote...');
+					return this.handleQuoteFetch();
+				} else {					
+					// Remove control characters and backslashes
+					quoteData.data = quoteData.data.replace(/[^ \w-,'"\.;:?+=*—\(\)&!\/{}]/g, "");
+					quoteData.data = JSON.parse(quoteData.data);					
+				}				
+			}
+
+			if (quoteData.data.quoteAuthor.length === 0) {
+				quoteData.data.quoteAuthor = 'Anonymous';
+			}
+			
 			this.setState({
 				loading: false,
-				quote: quoteData
+				quote: quoteData.data
 			});
 		}.bind(this))
-		.catch(function() {
+		.catch(function(err) {
+			console.log(err);
 			this.setState({
 				loading: false,
 				error: true
@@ -35,7 +55,6 @@ var QuoteContainer = React.createClass({
 		}.bind(this));
 	},
 	render: function() {
-		console.log(this.state);
 		return (
 			<div className="row">				
 				<div className="col-xs-12">
