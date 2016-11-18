@@ -12,8 +12,7 @@ var QuoteContainer = React.createClass({
 	getInitialState: function() {
 		return {
 			loading: true,
-			quote: {},
-			error: false
+			quote: {}
 		}
 	},
 	componentDidMount: function() {
@@ -22,7 +21,7 @@ var QuoteContainer = React.createClass({
 	handleQuoteFetch: function() {
 		quoteFetcher()
 		.then(function(quoteData) {					
-
+			
 			// sometimes the API returns a stringified JSON object, instead of actual JSON	
 			if (typeof quoteData.data === 'string') {
 				if (quoteData.data.match(/"/g).length > 20) {
@@ -50,9 +49,18 @@ var QuoteContainer = React.createClass({
 			console.log(err);
 			this.setState({
 				loading: false,
-				error: true
+				quote: {
+					quoteText: 'An error occurred during quote generation. Please try again.',
+					quoteAuthor: ''
+				}
 			});
 		}.bind(this));
+	},
+	handleQuoteRequest: function() {
+		this.setState({
+			loading: true
+		});
+		this.handleQuoteFetch();
 	},
 	render: function() {
 		return (
@@ -61,7 +69,7 @@ var QuoteContainer = React.createClass({
 					<Title />					
 					{this.state.loading ? <Loading /> : <QuoteText quoteData={this.state.quote}/>}					
 					<PastQuotes />
-					<QuoteButtons />			
+					<QuoteButtons onQuoteRequest={this.handleQuoteRequest} />			
 				</div>
 			</div>
 		)
