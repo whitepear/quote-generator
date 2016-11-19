@@ -12,7 +12,8 @@ var QuoteContainer = React.createClass({
 	getInitialState: function() {
 		return {
 			loading: true,
-			quote: {}
+			quote: {},
+			pastQuotes: []
 		}
 	},
 	componentDidMount: function() {
@@ -57,8 +58,22 @@ var QuoteContainer = React.createClass({
 		}.bind(this));
 	},
 	handleQuoteRequest: function() {
+		var pastQuotes = this.state.pastQuotes;
+		var currentQuote = this.state.quote.quoteText;
+
+		if (pastQuotes.length === 5) {
+			pastQuotes.pop();
+		}
+		
+		if (currentQuote.length > 120) {
+			currentQuote = currentQuote.slice(0, 116) + '...';
+		}
+
+		pastQuotes.unshift(currentQuote);
+
 		this.setState({
-			loading: true
+			loading: true,
+			pastQuotes: pastQuotes
 		});
 		this.handleQuoteFetch();
 	},
@@ -68,7 +83,7 @@ var QuoteContainer = React.createClass({
 				<div className="col-xs-12">
 					<Title />					
 					{this.state.loading ? <Loading /> : <QuoteText quoteData={this.state.quote}/>}					
-					<PastQuotes />
+					<PastQuotes pastQuotes={this.state.pastQuotes} />
 					<QuoteButtons onQuoteRequest={this.handleQuoteRequest} />			
 				</div>
 			</div>
