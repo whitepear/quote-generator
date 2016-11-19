@@ -61,12 +61,12 @@ var QuoteContainer = React.createClass({
 		var pastQuotes = this.state.pastQuotes;
 		var currentQuote = this.state.quote.quoteText;
 
-		if (pastQuotes.length === 5) {
+		if (pastQuotes.length === 3) {
 			pastQuotes.pop();
 		}
 		
-		if (currentQuote.length > 120) {
-			currentQuote = currentQuote.slice(0, 116) + '...';
+		if (currentQuote.length > 115) {
+			currentQuote = currentQuote.slice(0, 112) + '...';
 		}
 
 		pastQuotes.unshift(currentQuote);
@@ -84,7 +84,7 @@ var QuoteContainer = React.createClass({
 					<Title />					
 					{this.state.loading ? <Loading /> : <QuoteText quoteData={this.state.quote}/>}					
 					<PastQuotes pastQuotes={this.state.pastQuotes} />
-					<QuoteButtons onQuoteRequest={this.handleQuoteRequest} />			
+					<QuoteButtons loading={this.state.loading} onQuoteRequest={this.handleQuoteRequest} />			
 				</div>
 			</div>
 		)
