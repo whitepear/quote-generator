@@ -14,6 +14,10 @@ body {
 	background: url(../images/sky_pink.jpg);
 }
 
+.non-mobile-title {
+	height: 250px;
+}
+
 .non-mobile-title h1 {
 	margin-top: 0px;
 	font-size: 124px;	
@@ -29,22 +33,44 @@ body {
 }
 
 .loading-container, .quote-text-box {
-	min-height: 200px;
+	min-height: 230px;
 	border-bottom: 1px solid transparent;
   border-image: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2));
   border-image-slice: 1;
 }
 
-.quote-text-box {	
+.loading-text {
+	position: relative;
+	top: -107px;
+	font-size: 23px;
+}
+
+.quote-content {
+	font-size: 42px;
+	text-align: left;
+}
+
+.quote-author {
+	font-size: 36px;
 	text-align: right;
 }
 
-.quote-text-box p {
-	font-size: 50px;
+.past-quotes {
+  font-size: 20px;
+  margin-top: 50px;
+}
+
+.past-quotes h1 {
+	margin-top: 12px;
+	margin-bottom: 24px;
+}
+
+.past-quotes div {
+	margin: 7px 0;
 }
 
 .quote-buttons {
-	margin-top: 75px;
+	margin-top: 25px;
 	text-align: right;
 }
 
@@ -60,6 +86,10 @@ body {
 
 	&:hover {
 		box-shadow: 0px 0px 10px -1px rgba(238, 238, 238, 0.7);
+		color: #fff;
+	}
+
+	&:active, &:focus {
 		color: #fff;
 	}
 }
