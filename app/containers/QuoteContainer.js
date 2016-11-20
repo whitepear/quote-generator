@@ -77,6 +77,18 @@ var QuoteContainer = React.createClass({
 		});
 		this.handleQuoteFetch();
 	},
+	handleTweetQuote: function() {
+		var currentQuote = this.state.quote.quoteText.replace(/;/g, '%3B'); // encode semi-colons for query-string
+		var twitterUrl = "https://twitter.com/intent/tweet?text=";
+
+		if (currentQuote.length > 140) {
+			var characterCount = 140 - 23; // the tweet will include a link to the quote; links are always 23 characters long
+			var quoteSnippet = currentQuote.slice(0, characterCount - 4) + '... ';
+			location.href = twitterUrl + quoteSnippet + this.state.quote.quoteLink;		  	
+		} else {
+			location.href = twitterUrl + currentQuote;
+		}			
+	},
 	render: function() {
 		return (
 			<div className="row">				
@@ -84,7 +96,10 @@ var QuoteContainer = React.createClass({
 					<Title />					
 					{this.state.loading ? <Loading /> : <QuoteText quoteData={this.state.quote}/>}					
 					<PastQuotes pastQuotes={this.state.pastQuotes} />
-					<QuoteButtons loading={this.state.loading} onQuoteRequest={this.handleQuoteRequest} />			
+					<QuoteButtons 
+						loading={this.state.loading} 
+						onQuoteRequest={this.handleQuoteRequest} 
+						onTweetQuote={this.handleTweetQuote} />			
 				</div>
 			</div>
 		)
