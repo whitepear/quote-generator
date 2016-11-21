@@ -4,7 +4,7 @@ function QuoteButtons(props) {
 	return (
 		<div className="quote-buttons col-xs-12 col-sm-6">
 			<button disabled={props.loading} className="btn btn-quote" onClick={props.onQuoteRequest}>New Quote</button>
-			<a href="#" id="tweetLink" onClick={props.onTweetQuote}><i className="fa fa-twitter" aria-hidden="true"></i></a>							
+			<a href="#" onClick={props.onTweetQuote}></a>							
 		</div>
 	)
 }
