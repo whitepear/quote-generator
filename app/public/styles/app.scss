@@ -1,3 +1,5 @@
+// Local fonts
+
 @font-face {
 	font-family: 'Cavorting';
 	src: url('../fonts/Cavorting.otf');
@@ -7,6 +9,8 @@
   font-family: 'icomoon';
   src:  url('../fonts/icomoon.ttf');
 }
+
+// Application styling
 
 html {
 	height: 100%;
@@ -110,5 +114,135 @@ a {
 	&:hover, &:focus, &:active {
 		color: #ddd;
 		text-decoration: none;
+	}
+}
+
+// Medium Styles
+@media (min-width: 992px) and (max-width: 1199px) {
+	.non-mobile-title {
+		height: 200px;
+	}
+
+	.non-mobile-title h1 {
+		font-size: 104px;	
+	}
+
+	.non-mobile-title h2 {
+	  top: -57px;
+	  left: 43px;
+	  font-size: 79px;
+	}
+
+	.loading-container, .quote-text-box {
+		min-height: 200px;
+	}
+
+	.quote-content {
+		font-size: 36px;
+	}
+
+	.quote-author {
+		font-size: 32px;
+	}
+
+	.past-quotes {
+		margin-bottom: 100px;
+	}
+
+	.past-quotes h1 {
+		font-size: 32px;
+	}
+
+	.btn-quote {
+		width: auto;
+		font-size: 24px;
+	}
+
+	a {
+		font-size: 58px;
+	}
+}
+
+// Small Styles
+@media (min-width: 768px) and (max-width: 991px) {
+	.non-mobile-title {
+		height: 160px;
+	}
+
+	.non-mobile-title h1 {
+		font-size: 90px;	
+	}
+
+	.non-mobile-title h2 {
+	  top: -53px;
+		left: 40px;
+		font-size: 68px;
+	}
+
+	.loading-container, .quote-text-box {
+		min-height: 200px;
+	}
+
+	.quote-content {
+		font-size: 32px;
+	}
+
+	.quote-author {
+		font-size: 28px;
+	}
+
+	.past-quotes {
+		margin-bottom: 70px;
+	}
+
+	.past-quotes h1 {
+		font-size: 28px;
+	}
+
+	.btn-quote {
+		width: auto;
+		font-size: 24px;
+	}
+
+	a {
+		font-size: 58px;
+	}
+}
+
+// Extra Small Styles
+@media (max-width: 767px) {
+	body {
+		background: linear-gradient(#d18877, #e17a71);
+	}
+
+	.mobile-title {
+		font-family: 'Cavorting';
+		font-size: 60px;
+		margin-bottom: 5px;
+	}
+
+	.loading-container, .quote-text-box {
+		min-height: 200px;
+	}
+
+	.quote-content {
+		font-size: 26px;
+	}
+
+	.quote-author {
+		font-size: 24px;
+	}
+
+	.quote-buttons {
+		text-align: center;
+	}
+
+	.btn-quote {
+		width: auto;
+		font-size: 24px;
+	}
+
+	a {
+		font-size: 58px;
 	}
 }

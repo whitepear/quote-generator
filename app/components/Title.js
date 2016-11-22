@@ -8,7 +8,7 @@ function Title(props) {
 				<h2>Generator</h2>
 			</div>
 			<div className="mobile-title visible-xs">
-				<h1>Quotes!</h1>
+				<div>Quotes!</div>
 			</div>
 		</div>
 	)
