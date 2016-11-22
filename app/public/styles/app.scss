@@ -119,6 +119,10 @@ a {
 
 // Medium Styles
 @media (min-width: 992px) and (max-width: 1199px) {
+	body {
+		background: url(../images/sky_pink_md.jpg);
+	}
+	
 	.non-mobile-title {
 		height: 200px;
 	}
