@@ -231,6 +231,8 @@ a {
 
 	.loading-container, .quote-text-box {
 		min-height: 200px;
+		border: none;
+		border-bottom: 1px solid #eee;
 	}
 
 	.quote-content {
