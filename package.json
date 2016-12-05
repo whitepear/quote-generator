@@ -4,7 +4,7 @@
   "description": "Quote generator coded in react.js.",
   "main": "app/index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/whitepear/quote-generator#readme",
   "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",
     "babel-preset-react": "^6.16.0",
@@ -30,7 +31,6 @@
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.24.1",
     "node-sass": "^3.11.2",
-    "postcss-loader": "^1.2.0",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
@@ -39,7 +39,17 @@
   },
   "dependencies": {
     "axios": "^0.15.2",
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.3.3",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "request": "^2.79.0",
+    "serve-favicon": "^2.3.2"
+  },
+  "engines": {
+    "node": "v4.4.2"
   }
 }
