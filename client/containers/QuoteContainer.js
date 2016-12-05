@@ -5,8 +5,7 @@ var Loading = require('../components/Loading.js');
 var QuoteText = require('../components/QuoteText.js');
 var PastQuotes = require('../components/PastQuotes.js');
 var QuoteButtons = require('../components/QuoteButtons.js');
-// Utils
-var quoteFetcher = require('../utils/quoteFetcher.js');
+var axios = require('axios');
 
 var QuoteContainer = React.createClass({
 	getInitialState: function() {
@@ -20,9 +19,9 @@ var QuoteContainer = React.createClass({
 		this.handleQuoteFetch();
 	},
 	handleQuoteFetch: function() {
-		quoteFetcher()
-		.then(function(quoteData) {					
-			
+		axios.get('/fetchQuote')
+		.then(function(quoteData) {
+							
 			// sometimes the API returns a stringified JSON object, instead of actual JSON	
 			if (typeof quoteData.data === 'string') {
 				if (quoteData.data.match(/"/g).length > 20) {
